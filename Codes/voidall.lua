@@ -8,7 +8,7 @@ local plr = plrs.LocalPlayer
 local bp = plr.Backpack
 
 local chr = plr.Character
-local hrp, hum, rs = chr.HumanoidRootPart, chr.Humanoid
+local hrp, hum, cf, rs = chr.HumanoidRootPart, chr.Humanoid, chr:GetModelCFrame()
 
 for i, v in next, bp:GetChildren() do
     if v.Name == "Stroller" then
@@ -58,4 +58,8 @@ for i, v in next, players do
     end)
 end
 
-chr:SetPrimaryPartCFrame(CFrame.new(0, -498, 0))
+chr:SetPrimaryPartCFrame(CFrame.new(0, -498, 0)); wait(1/4)
+hum:UnequipTools()
+repeat wait() until not chr:FindFirstChildWhichIsA("Tool")
+
+chr:SetPrimaryPartCFrame(cf)
