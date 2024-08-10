@@ -75,5 +75,5 @@ wait(1/2)
 rs:Disconnect()
 
 hum:UnequipTools()
-repeat task.wait() until not chr:FindFirstChildWhichIsA("Tool")
+repeat task.wait(1) until not chr:FindFirstChildWhichIsA("Tool")
 chr:SetPrimaryPartCFrame(cf)
