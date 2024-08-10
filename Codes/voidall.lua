@@ -69,7 +69,7 @@ end)
 
 repeat task.wait() until not bp:FindFirstChild("Stroller")
 
-wait(2)
+wait(1/2)
 rs:Disconnect()
 
 hum:UnequipTools()
