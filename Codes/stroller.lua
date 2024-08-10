@@ -19,12 +19,12 @@ local bp = plr.Backpack
 local chr = plr.Character
 local hum, pp, cf = chr.Humanoid, chr.PrimaryPart, chr:GetModelCFrame()
 
-if hum.Sit then
-    repeat task.wait()
-        hum.Sit = false
-        hum:ChangeState(3)
-    until hum.Sit == false
+if hum.Sit == true then
+    hum.Sit = false
+    hum:ChangeState(3)
 end
+
+repeat wait() until hum.Sit == false
 
 chr:SetPrimaryPartCFrame(cf * CFrame.new(0, 100000, 0)); wait(1/2)
 
@@ -68,7 +68,7 @@ task.spawn(function()
             until v:IsDescendantOf(chr)
 
             hum:UnequipTools()
-            repeat task.wait() until not chr:FindFirstChildWhichIsA("Tool")
+            repeat task.wait(1) until not chr:FindFirstChildWhichIsA("Tool")
         end
     end
 end)
