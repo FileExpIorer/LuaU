@@ -95,7 +95,7 @@ insertCommand("to", function(getPlayer)
         end; rs:Disconnect()
     end)
 
-    for i = 1, 20 do
+    for i = 1, 10 do
         if (plr.Character) and ((tonumber(plr.Character:FindFirstChild("Humanoid").Health)) > (0)) and (plr.Character:FindFirstChild("HumanoidRootPart")) and ((getPlayer).Character) and ((tonumber((getPlayer).Character:FindFirstChild("Humanoid").Health)) > (0)) and ((getPlayer).Character:FindFirstChild("HumanoidRootPart")) then
             spawn(function()
                 if (plr.Character:FindFirstChild("Humanoid").Sit) and ((tonumber((plr.Character:FindFirstChild("Humanoid").MoveDirection).Magnitude)) <= (0)) then
@@ -115,6 +115,10 @@ insertCommand("to", function(getPlayer)
             plr.Character:FindFirstChild("HumanoidRootPart").CFrame = (((getPlayer).Character:FindFirstChild("Head").CFrame) * CFrame.new(5, 0, 0))
             property()
         end; task.wait()
+
+        if i == 9 then
+            wait(1/2)
+        end
     end
 end)
 
