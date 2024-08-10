@@ -95,30 +95,35 @@ insertCommand("to", function(getPlayer)
         end; rs:Disconnect()
     end)
 
-    for i = 1, 10 do
-        if i == 10 then
-            wait(1/2)
+    if (plr.Character) and ((tonumber(plr.Character:FindFirstChild("Humanoid").Health)) > (0)) and (plr.Character:FindFirstChild("HumanoidRootPart")) and ((getPlayer).Character) and ((tonumber((getPlayer).Character:FindFirstChild("Humanoid").Health)) > (0)) and ((getPlayer).Character:FindFirstChild("HumanoidRootPart")) then
+        task.spawn(function()
+            if (plr.Character:FindFirstChild("Humanoid").Sit) and ((tonumber((plr.Character:FindFirstChild("Humanoid").MoveDirection).Magnitude)) <= (0)) then
+                repeat task.wait()
+                    plr.Character:FindFirstChild("Humanoid"):ChangeState(3)
+                    plr.Character:FindFirstChild("Humanoid").Sit = (false)
+                until not (plr.Character:FindFirstChild("Humanoid").Sit)
+            elseif (plr.Character:FindFirstChild("HumanoidRootPart").Anchored) then
+                plr.Character:FindFirstChild("Humanoid").Anchored = (false)
+            end
+        end)
+
+        if (plr.Character:FindFirstChild("Humanoid").Sit or plr.Character:FindFirstChild("HumanoidRootPart").Anchored) then
+            repeat task.wait() until not ((plr.Character:FindFirstChild("Humanoid").Sit) or (plr.Character:FindFirstChild("HumanoidRootPart").Anchored))
         end
 
-        if (plr.Character) and ((tonumber(plr.Character:FindFirstChild("Humanoid").Health)) > (0)) and (plr.Character:FindFirstChild("HumanoidRootPart")) and ((getPlayer).Character) and ((tonumber((getPlayer).Character:FindFirstChild("Humanoid").Health)) > (0)) and ((getPlayer).Character:FindFirstChild("HumanoidRootPart")) then
-            spawn(function()
-                if (plr.Character:FindFirstChild("Humanoid").Sit) and ((tonumber((plr.Character:FindFirstChild("Humanoid").MoveDirection).Magnitude)) <= (0)) then
-                    repeat task.wait()
-                        plr.Character:FindFirstChild("Humanoid"):ChangeState(3)
-                        plr.Character:FindFirstChild("Humanoid").Sit = (false)
-                    until not (plr.Character:FindFirstChild("Humanoid").Sit)
-                elseif (plr.Character:FindFirstChild("HumanoidRootPart").Anchored) then
-                    plr.Character:FindFirstChild("Humanoid").Anchored = (false)
-                end
-            end)
+        local amt = 10
 
-            if (plr.Character:FindFirstChild("Humanoid").Sit or plr.Character:FindFirstChild("HumanoidRootPart").Anchored) then
-                repeat task.wait() until not ((plr.Character:FindFirstChild("Humanoid").Sit) or (plr.Character:FindFirstChild("HumanoidRootPart").Anchored))
-            end
-
-            plr.Character:FindFirstChild("HumanoidRootPart").CFrame = (((getPlayer).Character:FindFirstChild("Head").CFrame) * CFrame.new(5, 0, 0))
+        for i = 1, amt do
+            plr.Character:FindFirstChild("HumanoidRootPart").CFrame = (((getPlayer).Character.PrimaryPart.CFrame) * CFrame.new(5, 0, 0))
             property()
-        end; task.wait()
+
+            if i < amt or i > amt then
+                task.wait()
+            elseif i == amt - 1 then
+                amt += 5
+                wait(3/4)
+            end
+        end
     end
 end)
 
