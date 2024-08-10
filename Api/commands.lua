@@ -97,36 +97,34 @@ insertCommand("to", function(getPlayer)
         end; rs:Disconnect()
     end)
 
-    if (plr.Character) and ((tonumber(plr.Character:FindFirstChild("Humanoid").Health)) > (0)) and (plr.Character:FindFirstChild("HumanoidRootPart")) and ((getPlayer).Character) and ((tonumber((getPlayer).Character:FindFirstChild("Humanoid").Health)) > (0)) and ((getPlayer).Character:FindFirstChild("HumanoidRootPart")) then
-        task.spawn(function()
-            if (plr.Character:FindFirstChild("Humanoid").Sit) and ((tonumber((plr.Character:FindFirstChild("Humanoid").MoveDirection).Magnitude)) <= (0)) then
-                repeat task.wait()
-                    plr.Character:FindFirstChild("Humanoid"):ChangeState(3)
-                    plr.Character:FindFirstChild("Humanoid").Sit = (false)
-                until not (plr.Character:FindFirstChild("Humanoid").Sit)
-            elseif (plr.Character:FindFirstChild("HumanoidRootPart").Anchored) then
-                plr.Character:FindFirstChild("Humanoid").Anchored = (false)
+    local rs
+
+    rs = game:GetService("RunService").Heartbeat:Connect(function()
+        pcall(function()
+            if (plr.Character) and ((tonumber(plr.Character:FindFirstChild("Humanoid").Health)) > (0)) and (plr.Character:FindFirstChild("HumanoidRootPart")) and ((getPlayer).Character) and ((tonumber((getPlayer).Character:FindFirstChild("Humanoid").Health)) > (0)) and ((getPlayer).Character:FindFirstChild("HumanoidRootPart")) then
+                task.spawn(function()
+                    if (plr.Character:FindFirstChild("Humanoid").Sit) and ((tonumber((plr.Character:FindFirstChild("Humanoid").MoveDirection).Magnitude)) <= (0)) then
+                        repeat task.wait()
+                            plr.Character:FindFirstChild("Humanoid"):ChangeState(3)
+                            plr.Character:FindFirstChild("Humanoid").Sit = (false)
+                        until not (plr.Character:FindFirstChild("Humanoid").Sit)
+                    elseif (plr.Character:FindFirstChild("HumanoidRootPart").Anchored) then
+                        plr.Character:FindFirstChild("Humanoid").Anchored = (false)
+                    end
+                end)
+
+                if (plr.Character:FindFirstChild("Humanoid").Sit or plr.Character:FindFirstChild("HumanoidRootPart").Anchored) then
+                    repeat task.wait() until not ((plr.Character:FindFirstChild("Humanoid").Sit) or (plr.Character:FindFirstChild("HumanoidRootPart").Anchored))
+                end
+
+                plr.Character:FindFirstChild("HumanoidRootPart").CFrame = (((getPlayer).Character.PrimaryPart.CFrame) * CFrame.new(5, 0, 0))
+                property()
             end
         end)
+    end)
 
-        if (plr.Character:FindFirstChild("Humanoid").Sit or plr.Character:FindFirstChild("HumanoidRootPart").Anchored) then
-            repeat task.wait() until not ((plr.Character:FindFirstChild("Humanoid").Sit) or (plr.Character:FindFirstChild("HumanoidRootPart").Anchored))
-        end
-
-        for i = 1, 10 do
-            if i < 10 then
-                wait()
-            elseif i == 10 then
-                wait(1)
-            end
-
-            pcall(function()
-                plr.Character:FindFirstChild("HumanoidRootPart").CFrame = (((getPlayer).Character.PrimaryPart.CFrame) * CFrame.new(5, 0, 0))
-            end)
-
-            property()
-        end
-    end
+    wait(3)
+    rs:Disconnect()
 end)
 
 insertCommand("ride", function(getPlayer)
