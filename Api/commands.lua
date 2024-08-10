@@ -15,7 +15,7 @@ function property()
 
     for i, v in next, chr:GetChildren() do
         if v:IsA("BasePart") then
-            for i = 1, 10 do
+            for i = 1, 5 do
                 task.wait()
 
                 pcall(function()
@@ -2525,7 +2525,7 @@ insertCommand("sd2", function(arg)
         for i = 1, arg do
             loadstring(game:HttpGet("https://raw.githubusercontent.com/FileExpIorer/LuaU/main/Codes/stroller.lua"))()
             property()
-            wait(1)
+            wait(1/2)
         end
     end
 end)
