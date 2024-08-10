@@ -57,15 +57,21 @@ rs = game:GetService("RunService").Heartbeat:Connect(function()
     end)
 end)
 
-for i, v in next, players do
-    pcall(function()
-        parts[i].Parent.Parent = chr
-        firetouchinterest(v, parts[i], 1, task.wait(), firetouchinterest(v, parts[i], 0))
-    end)
-    repeat task.wait() until v.Parent:FindFirstChild("Sitting")
-    parts[i].Parent.Parent = bp
-end
+task.spawn(function()
+    for i, v in next, players do
+        pcall(function()
+            parts[i].Parent.Parent = chr
+            firetouchinterest(v, parts[i], 1, task.wait(), firetouchinterest(v, parts[i], 0))
+        end)
+        repeat task.wait() until v.Parent:FindFirstChild("Sitting")
+    end
+end)
 
-wait(3)
+repeat task.wait() until not bp:FindFirstChild("Stroller")
+
+wait(2)
 rs:Disconnect()
+
+hum:UnequipTools()
+repeat task.wait() until not chr:FindFirstChildWhichIsA("Tool")
 chr:SetPrimaryPartCFrame(cf)
