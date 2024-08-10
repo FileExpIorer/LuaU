@@ -58,10 +58,9 @@ for i, v in next, players do
     pcall(function()
         parts[i].Parent.Parent = chr
         firetouchinterest(v, parts[i], 1, task.wait(), firetouchinterest(v, parts[i], 0))
+        repeat task.wait() until parts[i].Parent:IsDescendantOf(chr)
+        parts[i].Parent.Parent = bp
     end)
-
-    repeat task.wait() until parts[i]:IsDescendantOf(chr)
-    parts[i].Parent.Parent = bp
 end
 
 hum:UnequipTools()
