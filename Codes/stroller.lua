@@ -19,7 +19,7 @@ local bp = plr.Backpack
 local chr = plr.Character
 local hum, pp, cf = chr.Humanoid, chr.PrimaryPart, chr:GetModelCFrame()
 
-wait(1/4)
+wait(1/2)
 
 if hum.Sit == true then
     hum.Sit = false
