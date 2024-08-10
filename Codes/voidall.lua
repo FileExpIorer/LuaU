@@ -58,7 +58,8 @@ for i, v in next, players do
     end)
 end
 
-chr:SetPrimaryPartCFrame(CFrame.new(0, -498, 0)); wait(1/4)
+chr:SetPrimaryPartCFrame(CFrame.new(0, -498, 0))
+wait(1/2)
 hum:UnequipTools()
 repeat wait() until not chr:FindFirstChildWhichIsA("Tool")
 
