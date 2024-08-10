@@ -39,16 +39,6 @@ if #parts <= 0 or (#players + #wl) + 1 <= 1 + #wl then
     return error'fail'
 end
 
-local mass = 0
-
-repeat task.wait()
-    for i, v in next, chr:GetChildren() do
-        if v:IsA("BasePart") then
-            mass += v:GetMass()
-        end
-    end
-until mass > 12
-
 local block
 
 for i, v in next, workspace["Police Station"]:GetChildren() do
