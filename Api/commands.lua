@@ -95,7 +95,7 @@ insertCommand("to", function(getPlayer)
         end; rs:Disconnect()
     end)
 
-    for i = 1, 15 do
+    for i = 1, 20 do
         if (plr.Character) and ((tonumber(plr.Character:FindFirstChild("Humanoid").Health)) > (0)) and (plr.Character:FindFirstChild("HumanoidRootPart")) and ((getPlayer).Character) and ((tonumber((getPlayer).Character:FindFirstChild("Humanoid").Health)) > (0)) and ((getPlayer).Character:FindFirstChild("HumanoidRootPart")) then
             spawn(function()
                 if (plr.Character:FindFirstChild("Humanoid").Sit) and ((tonumber((plr.Character:FindFirstChild("Humanoid").MoveDirection).Magnitude)) <= (0)) then
