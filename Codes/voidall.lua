@@ -56,6 +56,7 @@ for i, v in next, players do
         parts[i].Parent.Parent = chr
         firetouchinterest(v, parts[i], 1, task.wait(), firetouchinterest(v, parts[i], 0))
     end)
+    repeat task.wait() until v.Parent:FindFirstChild("Sitting")
 end
 
 chr:SetPrimaryPartCFrame(CFrame.new(0, -496, 0))
