@@ -369,6 +369,9 @@ insertCommand("svoid", function(getPlayer)
         end
 
         if (plr.Character) and ((tonumber(plr.Character:FindFirstChild("Humanoid").Health)) > (0)) then
+            workspace.Events.Morph.Player:FireServer("Sheep")
+            workspace.FallenPartsDestroyHeights = 0/0
+
             local saveCF = plr.Character:GetModelCFrame(); wait(1/4)
 
             plr.Character:SetPrimaryPartCFrame(CFrame.new(0, 10000, 0)); wait(1/2)
@@ -2514,5 +2517,15 @@ insertCommand("sd2", function(arg)
             loadstring(game:HttpGet("https://raw.githubusercontent.com/FileExpIorer/LuaU/main/Codes/stroller.lua"))()
             wait(1)
         end
+    end
+end)
+
+insertCommand("morph", function()
+    workspace.Events.Morph.Player:FireServer("Sheep")
+end)
+
+insertCommand("void", function(arg)
+    if arg == "all" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FileExpIorer/LuaU/main/Codes/voidall.lua"))()
     end
 end)
