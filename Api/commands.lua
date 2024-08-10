@@ -377,12 +377,12 @@ insertCommand("svoid", function(getPlayer)
         end
 
         if (plr.Character) and ((tonumber(plr.Character:FindFirstChild("Humanoid").Health)) > (0)) then
-            workspace.Events.Morph.Player:FireServer("Sheep")
             workspace.FallenPartsDestroyHeight = 0/0
 
             local saveCF = plr.Character:GetModelCFrame(); wait(1/4)
 
             plr.Character:SetPrimaryPartCFrame(CFrame.new(0, 10000, 0)); wait(1/2)
+            workspace.Events.Morph.Player:FireServer("Sheep")
 
             local tool = ((plr.Backpack:FindFirstChild("Stroller")) or (plr.Character:FindFirstChild("Stroller")))
             plr.Character:FindFirstChild("Humanoid"):EquipTool(tool)
