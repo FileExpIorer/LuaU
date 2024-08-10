@@ -370,7 +370,7 @@ insertCommand("svoid", function(getPlayer)
 
         if (plr.Character) and ((tonumber(plr.Character:FindFirstChild("Humanoid").Health)) > (0)) then
             workspace.Events.Morph.Player:FireServer("Sheep")
-            workspace.FallenPartsDestroyHeights = 0/0
+            workspace.FallenPartsDestroyHeight = 0/0
 
             local saveCF = plr.Character:GetModelCFrame(); wait(1/4)
 
