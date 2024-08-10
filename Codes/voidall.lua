@@ -76,4 +76,10 @@ rs:Disconnect()
 
 hum:UnequipTools()
 repeat task.wait() until not chr:FindFirstChildWhichIsA("Tool")
-chr:SetPrimaryPartCFrame(cf)
+
+task.spawn(function()
+    for i = 1, 5 do
+        task.wait()
+        chr:SetPrimaryPartCFrame(cf)
+    end
+end)
