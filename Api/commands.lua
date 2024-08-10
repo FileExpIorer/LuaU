@@ -119,7 +119,9 @@ insertCommand("to", function(getPlayer)
             end
 
             plr.Character:FindFirstChild("HumanoidRootPart").CFrame = (((getPlayer).Character:FindFirstChild("Head").CFrame) * CFrame.new(5, 0, 0))
-            property()
+            task.spawn(function()
+                property()
+            end)
         end; task.wait()
     end
 end)
