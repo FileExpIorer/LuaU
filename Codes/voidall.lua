@@ -51,12 +51,6 @@ for i, v in next, workspace["Police Station"]:GetChildren() do
     end
 end
 
-rs = game:GetService("RunService").Heartbeat:Connect(function()
-    pcall(function()
-        chr:SetPrimaryPartCFrame(CFrame.new(0, -498, 0) * CFrame.Angles(-1.5, 0, 0))
-    end)
-end)
-
 for i, v in next, players do
     pcall(function()
         parts[i].Parent.Parent = chr
@@ -64,5 +58,4 @@ for i, v in next, players do
     end)
 end
 
-wait(3)
-rs:Disconnect()
+chr:SetPrimaryPartCFrame(chr:GetModelCFrame() * CFrame.new(0, -498, 0))
