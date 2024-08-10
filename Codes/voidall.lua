@@ -9,8 +9,8 @@ local bp = plr.Backpack
 local chr = plr.Character
 local hrp, hum, cf, rs = chr.HumanoidRootPart, chr.Humanoid, chr:GetModelCFrame()
 
-wait(1/2)
-workspace.Events.Morph.Player:FireServer("Sheep")
+wait(1/4)
+workspace.Events.Morph.Player:FireServer("Sheep"); wait(1/4)
 
 for i, v in next, bp:GetChildren() do
     if v.Name == "Stroller" then
@@ -76,10 +76,4 @@ rs:Disconnect()
 
 hum:UnequipTools()
 repeat task.wait() until not chr:FindFirstChildWhichIsA("Tool")
-
-task.spawn(function()
-    for i = 1, 5 do
-        task.wait()
-        chr:SetPrimaryPartCFrame(cf)
-    end
-end)
+chr:SetPrimaryPartCFrame(cf)
