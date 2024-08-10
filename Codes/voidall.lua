@@ -1,5 +1,5 @@
 workspace.Events.Morph.Player:FireServer("Sheep")
-workspace.FallenPartsDestroyHeights = 0/0
+workspace.FallenPartsDestroyHeight = 0/0
 
 local wl, players, parts = {"u73x", "5qea", "vDanieIl", "ReincarnatedEnergy"}, {}, {}
 
