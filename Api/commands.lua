@@ -15,14 +15,8 @@ function property()
 
     for i, v in next, chr:GetChildren() do
         if v:IsA("BasePart") then
-            for i = 1, 5 do
-                task.wait()
-
-                pcall(function()
-                    v.RotVelocity = Vector3.new(0, 0, 0)
-                    v.Velocity = Vector3.new(0, 0, 0)
-                end)
-            end
+            v.RotVelocity = Vector3.new(0, 0, 0)
+            v.Velocity = Vector3.new(0, 0, 0)
         end
     end
 end
@@ -101,7 +95,7 @@ insertCommand("to", function(getPlayer)
         end; rs:Disconnect()
     end)
 
-    for i = 1, 5 do
+    for i = 1, 10 do
         if (plr.Character) and ((tonumber(plr.Character:FindFirstChild("Humanoid").Health)) > (0)) and (plr.Character:FindFirstChild("HumanoidRootPart")) and ((getPlayer).Character) and ((tonumber((getPlayer).Character:FindFirstChild("Humanoid").Health)) > (0)) and ((getPlayer).Character:FindFirstChild("HumanoidRootPart")) then
             spawn(function()
                 if (plr.Character:FindFirstChild("Humanoid").Sit) and ((tonumber((plr.Character:FindFirstChild("Humanoid").MoveDirection).Magnitude)) <= (0)) then
@@ -119,9 +113,7 @@ insertCommand("to", function(getPlayer)
             end
 
             plr.Character:FindFirstChild("HumanoidRootPart").CFrame = (((getPlayer).Character:FindFirstChild("Head").CFrame) * CFrame.new(5, 0, 0))
-            task.spawn(function()
-                property()
-            end)
+            property()
         end; task.wait()
     end
 end)
@@ -2511,7 +2503,11 @@ end)
 
 insertCommand("st", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FileExpIorer/LuaU/main/Codes/stroller.lua"))()
-    property()
+
+    for i = 1, 5 do
+        property()
+        task.wait()
+    end
 end)
 
 insertCommand("cbp", function()
@@ -2526,7 +2522,14 @@ insertCommand("sd2", function(arg)
     if type(arg) == "number" then
         for i = 1, arg do
             loadstring(game:HttpGet("https://raw.githubusercontent.com/FileExpIorer/LuaU/main/Codes/stroller.lua"))()
-            property()
+
+            spawn(function()
+                for i = 1, 5 do
+                    property()
+                    task.wait()
+                end
+            end)
+
             wait(1/2)
         end
     end
@@ -2539,6 +2542,10 @@ end)
 insertCommand("void", function(arg)
     if arg == "all" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/FileExpIorer/LuaU/main/Codes/voidall.lua"))()
-        property()
+
+        for i = 1, 5 do
+            property()
+            task.wait()
+        end
     end
 end)
