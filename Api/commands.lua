@@ -11,12 +11,20 @@ local utilities = {}; table.clear(utilities)
 repeat task.wait() until (loop ~= true) and ((tonumber(#loops)) <= (0)) and ((tonumber(#utilities)) <= (0))
 
 function property()
-    pcall(function()
-        if (plr.Character) and ((tonumber(plr.Character:FindFirstChild("Humanoid").Health)) > (0)) and (plr.Character:FindFirstChild("HumanoidRootPart")) then
-            plr.Character:FindFirstChild("HumanoidRootPart").Velocity = Vector3.new(0, 0, 0)
-            plr.Character:FindFirstChild("HumanoidRootPart").RotVelocity = Vector3.new(0, 0, 0)
+    local chr = plr.Character
+
+    for i, v in next, chr:GetChildren() do
+        if v:IsA("BasePart") then
+            for i = 1, 10 do
+                task.wait()
+
+                pcall(function()
+                    v.RotVelocity = Vector3.new(0, 0, 0)
+                    v.Velocity = Vector3.new(0, 0, 0)
+                end)
+            end
         end
-    end)
+    end
 end
 
 insertCommand("prefix", function(prefix)
@@ -2501,6 +2509,7 @@ end)
 
 insertCommand("st", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FileExpIorer/LuaU/main/Codes/stroller.lua"))()
+    property()
 end)
 
 insertCommand("cbp", function()
@@ -2515,6 +2524,7 @@ insertCommand("sd2", function(arg)
     if type(arg) == "number" then
         for i = 1, arg do
             loadstring(game:HttpGet("https://raw.githubusercontent.com/FileExpIorer/LuaU/main/Codes/stroller.lua"))()
+            property()
             wait(1)
         end
     end
@@ -2527,5 +2537,6 @@ end)
 insertCommand("void", function(arg)
     if arg == "all" then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/FileExpIorer/LuaU/main/Codes/voidall.lua"))()
+        property()
     end
 end)
