@@ -15,8 +15,10 @@ function property()
 
     for i, v in next, chr:GetChildren() do
         if v:IsA("BasePart") then
-            v.RotVelocity = Vector3.new(0, 0, 0)
-            v.Velocity = Vector3.new(0, 0, 0)
+            pcall(function()
+                v.RotVelocity = Vector3.new(0, 0, 0)
+                v.Velocity = Vector3.new(0, 0, 0)
+            end)
         end
     end
 end
@@ -111,16 +113,17 @@ insertCommand("to", function(getPlayer)
             repeat task.wait() until not ((plr.Character:FindFirstChild("Humanoid").Sit) or (plr.Character:FindFirstChild("HumanoidRootPart").Anchored))
         end
 
-        local amt = 10
-
-        for i = 1, amt do
-            if i < amt then
-                task.wait()
-            elseif i == amt then
-                wait(3/4)
+        for i = 1, 10 do
+            if i < 10 then
+                wait()
+            elseif i == 10 then
+                wait(1)
             end
 
-            plr.Character:FindFirstChild("HumanoidRootPart").CFrame = (((getPlayer).Character.PrimaryPart.CFrame) * CFrame.new(5, 0, 0))
+            pcall(function()
+                plr.Character:FindFirstChild("HumanoidRootPart").CFrame = (((getPlayer).Character.PrimaryPart.CFrame) * CFrame.new(5, 0, 0))
+            end)
+
             property()
         end
     end
