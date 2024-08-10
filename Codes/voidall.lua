@@ -51,6 +51,8 @@ for i, v in next, workspace["Police Station"]:GetChildren() do
     end
 end
 
+chr:SetPrimaryPartCFrame(CFrame.new(0, -498, 0)); wait(1/2)
+
 for i, v in next, players do
     pcall(function()
         parts[i].Parent.Parent = chr
@@ -58,9 +60,6 @@ for i, v in next, players do
     end)
 end
 
-chr:SetPrimaryPartCFrame(CFrame.new(0, -498, 0))
-wait(1/2)
 hum:UnequipTools()
 repeat wait() until not chr:FindFirstChildWhichIsA("Tool")
-
 chr:SetPrimaryPartCFrame(cf)
