@@ -19,6 +19,13 @@ local bp = plr.Backpack
 local chr = plr.Character
 local hum, pp, cf = chr.Humanoid, chr.PrimaryPart, chr:GetModelCFrame()
 
+if hum.Sit then
+    repeat task.wait()
+        hum.Sit = false
+        hum:ChangeState(3)
+    until hum.Sit == false
+end
+
 chr:SetPrimaryPartCFrame(cf * CFrame.new(0, 100000, 0)); wait(1/2)
 
 for i, v in next, bp:GetChildren() do
