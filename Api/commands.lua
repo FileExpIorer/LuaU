@@ -114,15 +114,14 @@ insertCommand("to", function(getPlayer)
         local amt = 10
 
         for i = 1, amt do
-            plr.Character:FindFirstChild("HumanoidRootPart").CFrame = (((getPlayer).Character.PrimaryPart.CFrame) * CFrame.new(5, 0, 0))
-            property()
-
-            if i < amt or i > amt then
+            if i < amt then
                 task.wait()
-            elseif i == amt - 1 then
-                amt += 5
+            elseif i == amt then
                 wait(3/4)
             end
+
+            plr.Character:FindFirstChild("HumanoidRootPart").CFrame = (((getPlayer).Character.PrimaryPart.CFrame) * CFrame.new(5, 0, 0))
+            property()
         end
     end
 end)
