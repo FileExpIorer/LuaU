@@ -58,4 +58,4 @@ for i, v in next, players do
     end)
 end
 
-chr:SetPrimaryPartCFrame(chr:GetModelCFrame() * CFrame.new(0, -498, 0))
+chr:SetPrimaryPartCFrame(CFrame.new(0, -498, 0))
