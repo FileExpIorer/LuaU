@@ -51,16 +51,21 @@ for i, v in next, workspace["Police Station"]:GetChildren() do
     end
 end
 
+rs = game:GetService("RunService").Heartbeat:Connect(function()
+    pcall(function()
+        chr:SetPrimaryPartCFrame(CFrame.new(0, -498, 0) * CFrame.Angles(-1.5, 0, 0))
+    end)
+end)
+
 for i, v in next, players do
     pcall(function()
         parts[i].Parent.Parent = chr
         firetouchinterest(v, parts[i], 1, task.wait(), firetouchinterest(v, parts[i], 0))
     end)
     repeat task.wait() until v.Parent:FindFirstChild("Sitting")
+    parts[i].Parent.Parent = bp
 end
 
-chr:SetPrimaryPartCFrame(CFrame.new(0, -496, 0))
-wait(3/4)
-hum:UnequipTools()
-repeat wait() until not chr:FindFirstChildWhichIsA("Tool")
+wait(3)
+rs:Disconnect()
 chr:SetPrimaryPartCFrame(cf)
