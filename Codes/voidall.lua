@@ -10,6 +10,8 @@ local bp = plr.Backpack
 local chr = plr.Character
 local hrp, hum, cf, rs = chr.HumanoidRootPart, chr.Humanoid, chr:GetModelCFrame()
 
+wait(1/2)
+
 for i, v in next, bp:GetChildren() do
     if v.Name == "Stroller" then
         v.Parent = chr
