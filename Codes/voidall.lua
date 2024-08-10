@@ -51,13 +51,17 @@ for i, v in next, workspace["Police Station"]:GetChildren() do
     end
 end
 
-chr:SetPrimaryPartCFrame(CFrame.new(0, -498, 0)); wait(1/2)
+chr:SetPrimaryPartCFrame(CFrame.new(0, -496, 0))
+wait(1/2)
 
 for i, v in next, players do
     pcall(function()
         parts[i].Parent.Parent = chr
         firetouchinterest(v, parts[i], 1, task.wait(), firetouchinterest(v, parts[i], 0))
     end)
+
+    repeat task.wait() until parts[i]:IsDescendantOf(chr)
+    parts[i].Parent.Parent = bp
 end
 
 hum:UnequipTools()
