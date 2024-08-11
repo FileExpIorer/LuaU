@@ -123,7 +123,7 @@ insertCommand("to", function(getPlayer)
         end)
     end)
 
-    wait(3)
+    wait(2)
     rs:Disconnect()
 end)
 
