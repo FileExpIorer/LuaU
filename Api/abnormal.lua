@@ -4,7 +4,7 @@ end
 
 local api = {
     ["prefix"] = {["old"] = "nil", ["new"] = "/"},
-    ["wl"] = {"ReincarnatedEnergy", "5qea", "u73x"},
+    ["wl"] = {"ReincarnatedEnergy", "5qea", "vh7z"},
     ["bl"] = {},
     ["cmds"] = {},
     ["extensions"] = {}
